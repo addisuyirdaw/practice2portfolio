@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Addisu Yirdaw | Educator & Developer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2c3e50;
+      --secondary: #3498db;
+      --accent: #e74c3c;
+      --light: #ecf0f1;
+      --dark: #2c3e50;
+      --text: #333;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: #f9f9f9;
+      overflow-x: hidden;
+    }
+    
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--dark));
+      color: white;
+      padding: 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .profile-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 1rem;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .profile-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease;
+    }
+    
+    .profile-photo:hover {
+      transform: scale(1.05);
+    }
+    
+    .profile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .profile-info h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      animation: fadeInDown 1s ease-out;
+    }
+    
+    .tagline {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 1rem;
+      animation: fadeIn 1s ease-out 0.5s forwards;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1rem 0;
+      animation: fadeIn 1s ease-out 1s forwards;
+    }
+    
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      transform: translateY(-5px);
+    }
+    
+    
+    nav {
+      background-color: rgba(0,0,0,0.1);
+      padding: 1rem 0;
+      margin-top: 1rem;
+    }
+    
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    
+    nav ul li {
+      margin: 0 1rem;
+    }
+    
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    
+    nav ul li a:hover {
+      background-color: rgba(255,255,255,0.2);
+    }
+    
+   
+    .hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      color: white;
+      padding: 2rem;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      animation: fadeInUp 1s ease-out;
+    }
+    
+    .highlight {
+      color: var(--accent);
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      animation: fadeInUp 1s ease-out 0.5s forwards;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background-color: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      animation: fadeInUp 1s ease-out 1s forwards;
+    }
+    
+    .btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    
+  
+    .section {
+      padding: 4rem 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    
+    .section h2::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--accent);
+      margin: 0.5rem auto;
+    }
+    
+    
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .about-content p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    
+    .skills {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .skills h3 {
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    
+    .skills ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    
+    .skills li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .skills i {
+      color: var(--accent);
+    }
+    
+   
+    .youtube-embed {
+      margin: 2rem auto;
+      max-width: 800px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    
+   
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .project-card {
+      background: white;
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+    
+    .project-card h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    .project-card p {
+      margin-bottom: 1.5rem;
+    }
+    
+    
+    .contact-container {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .contact-info {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .contact-info p {
+      margin: 1rem 0;
+      font-size: 1.1rem;
+    }
+    
+    .contact-link {
+      color: var(--accent);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .contact-link:hover {
+      text-decoration: underline;
+    }
+    
+    
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .footer-links {
+      margin-top: 1rem;
+    }
+    
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+    
+   
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes fadeInUp {
+      from { 
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to { 
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInDown {
+      from { 
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to { 
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+  
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+    
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    
+    @media (max-width: 768px) {
+      .profile-info h1 {
+        font-size: 2rem;
+      }
+      
+      .tagline {
+        font-size: 1rem;
+      }
+      
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .section h2 {
+        font-size: 2rem;
+      }
+      
+      nav ul li {
+        margin: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+ 
+  <header>
+    <div class="profile-container">
+      <div class="profile-photo">
+        <img src="adi.jpg.jpg" alt="Addisu Yirdaw">
+      </div>
+      <div class="profile-info">
+        <h1>Addisu Yirdaw</h1>
+        <p class="tagline">Online Educator | Video Editor | Web Developer</p>
+        <div class="social-links">
+          <a href="https://www.youtube.com/channel/UCu_7UcTTbwMnLFbqxNuX1Ow" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.linkedin.com/in/addisu" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/addisuyirdaw" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://t.me/Lalibelasent/1" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+          <a href="https://www.upwork.com/freelancers/~01e4bd5691b71ac766" target="_blank" aria-label="Upwork"><i class="fab fa-upwork"></i></a>
+        </div>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Passionate <span class="highlight">Educator</span> & <span class="highlight">Developer</span></h1>
+      <p>Creating tech content and building web solutions</p>
+      <a href="#contact" class="btn">Let's Collaborate</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <div class="about-content animate-on-scroll">
+      <p>I'm a dedicated online educator, video editor, and web developer with a passion for creating tech content. I love teaching programming and building practical solutions that make a difference in people's lives.
+        i am businnes adminstrative student in university of the people 
+      </p>
+      <div class="skills">
+        <h3>My Skills</h3>
+        <ul>
+          <li><i class="fas fa-video"></i> Video Editing (Premiere Pro, Final Cut)</li>
+          <li><i class="fas fa-code"></i> HTML/CSS/JavaScript</li>
+          <li><i class="fas fa-laptop-code"></i> Web Development (React, Node.js)</li>
+          <li><i class="fas fa-chalkboard-teacher"></i> Educational Content Creation</li>
+          <li><i class="fas fa-graduation-cap"></i> Business Administration</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="teaching" class="section">
+    <h2>My YouTube Channel</h2>
+    <div class="youtube-embed animate-on-scroll">
+      <iframe width="100%" height="400" src="https://www.youtube.com/embed/?listType=user_uploads&list=UCu_7UcTTbwMnLFbqxNuX1Ow" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="animate-on-scroll" style="text-align: center; margin-top: 1rem;">
+      <a href="https://www.youtube.com/channel/UCu_7UcTTbwMnLFbqxNuX1Ow" target="_blank" class="btn">Visit Channel</a>
+    </div>
+  </section>
+
+
+  <section id="projects" class="section">
+    <h2>My Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card animate-on-scroll">
+        <h3>E-Learning Platform</h3>
+        <p>A comprehensive platform for online courses with interactive lessons and quizzes.</p>
+        <a href="#" class="btn">View Demo</a>
+      </div>
+      <div class="project-card animate-on-scroll">
+        <h3>Business Administration project</h3>
+        <p>university of the people friends coming soon</p>
+        <a href="#" class="btn">View Project</a>
+      </div>
+      <div class="project-card animate-on-scroll">
+        <h3>Video Tutorial Series</h3>
+        <p>Complete web development course with practical examples and exercises.</p>
+        <a href="#" class="btn">Watch Videos</a>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="contact" class="section">
+    <h2>Contact Me</h2>
+    
+    <div class="contact-container">
+      <!-- Working Contact Form -->
+      <div class="contact-form">
+        <form id="emailForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="form-group">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+  
+      <!-- Direct Contact Info -->
+      <div class="contact-info">
+        <h3>Or reach me directly:</h3>
+        <p><i class="fas fa-envelope"></i> 
+          <a href="mailto:addisulal@gmail.com">addisulal@gmail.com</a>
+        </p>
+        <p><i class="fas fa-phone"></i> 
+          <a href="tel:+251993266420">+251 9 93 26 64 20</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; <span id="year"></span> Addisu Yirdaw. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a> | 
+      <a href="#">Terms</a>
+    </div>
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Scroll animation trigger
+    const animateElements = () => {
+      const elements = document.querySelectorAll('.animate-on-scroll');
+      
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if(elementPosition < screenPosition) {
+          element.classList.add('visible');
+        }
+      });
+    };
+    
+    // Initialize animations
+    window.addEventListener('load', animateElements);
+    window.addEventListener('scroll', animateElements);
+    
+    // Smooth scrolling for navigation
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
